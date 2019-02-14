@@ -1,6 +1,10 @@
 pipeline {
-  agent any
-  tools {nodejs "node"}
+ agent {	
+   docker {	 
+      image 'node:6.9.2'	
+      args '-p 3000:3000'	
+     }	
+  }
   stages {
     stage('Prepare') {
       steps {
