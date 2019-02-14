@@ -37,7 +37,7 @@ export default class HomeScreen extends React.Component {
 
             <Text style={styles.getStartedText}>I'm Suthagar </Text>
 
-            <Text style={styles.getStartedText}>Demo React Native App 1</Text>
+            <Text style={styles.getStartedText}>Demo React Native App 12</Text>
 
           </View>
 
