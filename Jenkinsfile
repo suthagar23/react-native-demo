@@ -1,8 +1,8 @@
 pipeline {
   agent {
         docker {
-            image 'anthonymonori/android-ci-image' 
-            args '-u root:root -e'
+            image 'node:8' 
+            args '-u root:root'
         }
     }
      environment {
