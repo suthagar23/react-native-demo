@@ -1,20 +1,39 @@
 pipeline {
- agent {	
-   docker {	 
-      image 'node:6.9.2'	
-      args '-p 3000:3000'	
-     }	
-  }
+  agent {
+        docker {
+            image 'anthonymonori/android-ci-image' 
+            args '-u root:root -e TZ=Asia/Kolkata'
+        }
+    }
+     environment {
+        HOME = '.'
+    }
   stages {
-    stage('Prepare') {
+    stage("Install npm modules") {
       steps {
-        sh "npm install -g yarn"
-        sh "yarn install"
+        sh 'yarn'
       }
     }
-    stage('Build') {
+
+    stage("Running Tests") {
       steps {
-        sh 'yarn install'
+        sh 'yarn test'
+      }
+    }
+
+
+    stage('Branch Develop'){
+      when {
+        branch 'develop'
+      }
+      steps {
+          echo "develop"
+      }
+    }
+
+    stage("Clean Workspace") {
+      steps{
+        cleanWs()
       }
     }
   }
