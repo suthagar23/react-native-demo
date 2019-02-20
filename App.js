@@ -45,7 +45,7 @@ export default class App extends React.Component {
 
   _handleLoadingError = error => {
     // In this case, you might want to report the error to your erro
-    // reporting service, for example Sent
+    // reporting service, for example Sen
     console.warn(error);
   };
 
